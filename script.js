@@ -8,13 +8,14 @@ window.addEventListener('scroll', function() {
     }
 });
 
+
 particlesJS('particles-js', {
     particles: {
         number: {
             value: 80,
             density: {
                 enable: true,
-                value_area: 800
+                value_area: 700
             }
         },
         color: {
@@ -39,12 +40,12 @@ particlesJS('particles-js', {
             enable: true,
             distance: 150,
             color: "#409E57",
-            opacity: 0.4,
+            opacity: 0.5,
             width: 1
         },
         move: {
             enable: true,
-            speed: 6,
+            speed: 5,
             direction: "none",
             random: false,
             straight: false,
@@ -67,4 +68,9 @@ particlesJS('particles-js', {
         },
     },
     retina_detect: true
+});
+
+document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+    this.classList.toggle('active');
+    document.getElementById('mobile-menu').classList.toggle('active');
 });
