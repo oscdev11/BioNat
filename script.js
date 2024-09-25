@@ -12,7 +12,7 @@ window.addEventListener('scroll', function() {
 particlesJS('particles-js', {
     particles: {
         number: {
-            value: 80,
+            value: 60,
             density: {
                 enable: true,
                 value_area: 700
@@ -29,11 +29,11 @@ particlesJS('particles-js', {
             },
         },
         opacity: {
-            value: 0.5,
+            value: 0.3,
             random: false,
         },
         size: {
-            value: 5,
+            value: 7,
             random: true,
         },
         line_linked: {
@@ -41,11 +41,11 @@ particlesJS('particles-js', {
             distance: 150,
             color: "#409E57",
             opacity: 0.5,
-            width: 1
+            width: 2
         },
         move: {
             enable: true,
-            speed: 5,
+            speed: 2,
             direction: "none",
             random: false,
             straight: false,
