@@ -74,3 +74,14 @@ document.getElementById('mobile-menu-toggle').addEventListener('click', function
     this.classList.toggle('active');
     document.getElementById('mobile-menu').classList.toggle('active');
 });
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const targetSection = document.querySelector(this.getAttribute('href'));
+        targetSection.scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
