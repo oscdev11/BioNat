@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: white;
+    padding: 1rem 2rem;
+    position: fixed;
+    /* Fija el header en la parte superior */
+    top: 0;
+    padding: 1.5rem 8rem 1.5rem;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    /* opacity: 0.5; */
+}
+
+#logo {
+    height: 50px;
+    /* Puedes ajustar el tamaño según lo que necesites */
+    margin-right: auto;
+    /* Coloca el logo a la izquierda */
+    display: block;
+}
+
+
+
+section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start;
+    color: white;
+    text-align: center;
+}
+
+/* #home {
+    background-color: #3498db;
+    overflow: hidden;
+} */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+}
+
+#home {
+    position: relative;
+    z-index: 2;
+}
+
+.home-content {
+    margin-top: -5rem;
+    position: relative;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+}
+
+.text-content,
+.image-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.text-content h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.icon-circle img {
+    width: 50px;
+    height: 50px;
+}
+
+.icon-text {
+    font-size: 0.9em;
+    color: rgb(0, 0, 0);
+}
+
+.image-content img {
+    max-width: 100%;
+    height: auto;
+}
+
+#miTitulo {
+    color: rgb(0, 0, 0);
+    font-size: 48px;
+    text-align: left;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 500;
+}
+
+
+
+
+#about {
+    position: relative;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+.about-content {
+    margin-top: -5rem;
+    position: relative;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+}
+
+.image-content-about img {
+    max-width: 60%;
+    height: auto;
+}
+
+.icon-item-about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon-circle-about {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.icon-text-about {
+    font-size: 0.9em;
+    color: rgb(0, 0, 0);
+}
+
+
+
+
+#services {
+    background-color: #e74c3c;
+}
+
+#contact {
+    background-color: #9b59b6;
+}
+
+
+header.scrolled {
+    background-color: #fcfcfc;
+    /* opacity: 0.6; */
+    /* Cambia el color cuando se hace scroll */
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    /* Alinea verticalmente el logo y los elementos del menú */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+main {
+    margin-top: 80px;
+    /* Da margen superior para que el contenido no esté oculto detrás del header */
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 1rem 0;
+    }
+
+    #logo {
+        height: 40px;
+        /* Ajusta el tamaño del logo en pantallas pequeñas */
+    }
+}
