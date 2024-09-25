@@ -130,7 +130,7 @@ section {
 .description-text {
     font-size: 1em;
     text-align: left !important;
-    color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0) !important;
 }
 
 .image-content img {
