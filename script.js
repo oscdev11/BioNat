@@ -1,5 +1,5 @@
 
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const header = document.getElementById('main-header');
     if (window.scrollY > 50) {
         header.classList.add('scrolled');
@@ -70,18 +70,107 @@ particlesJS('particles-js', {
     retina_detect: true
 });
 
-document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+document.getElementById('mobile-menu-toggle').addEventListener('click', function () {
     this.classList.toggle('active');
     document.getElementById('mobile-menu').classList.toggle('active');
 });
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
         e.preventDefault();
 
         const targetSection = document.querySelector(this.getAttribute('href'));
         targetSection.scrollIntoView({
             behavior: 'smooth'
+        });
+    });
+});
+
+// TIENDA
+document.addEventListener('DOMContentLoaded', function () {
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function () {
+            this.classList.toggle('active');
+            if (mobileMenu) {
+                mobileMenu.classList.toggle('active');
+            }
+        });
+    }
+
+    const carouselInner = document.querySelector('.carousel-inner');
+    const items = document.querySelectorAll('.carousel-item');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    let currentIndex = 0;
+    let totalPrice = 0; // Para mantener el precio total
+
+    function showItem(index) {
+        carouselInner.style.transform = `translateX(-${index * 100}%)`;
+        items.forEach((item, i) => {
+            item.classList.toggle('active', i === index);
+        });
+    }
+
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        showItem(currentIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % items.length;
+        showItem(currentIndex);
+    });
+
+    // Muestra el primer ítem al cargar
+    showItem(currentIndex);
+
+    const pricePerUnit = 900.00; // Precio por unidad
+    const quantityInput = document.getElementById('quantity-input');
+    const totalPriceDisplay = document.getElementById('total-price');
+    const incrementBtn = document.getElementById('increment-btn');
+    const decrementBtn = document.getElementById('decrement-btn');
+
+    // Función para actualizar el precio total
+    function updateTotalPrice() {
+        const quantity = parseInt(quantityInput.value);
+        const totalPrice = (quantity * pricePerUnit).toFixed(2);
+        totalPriceDisplay.innerText = `$${totalPrice} MXN`;
+    }
+
+    // Inicializa el precio total
+    updateTotalPrice();
+
+    // Evento para aumentar la cantidad
+    incrementBtn.addEventListener('click', function () {
+        let quantity = parseInt(quantityInput.value);
+        if (quantity < 20) {
+            quantity += 1;
+            quantityInput.value = quantity;
+            updateTotalPrice();
+        }
+    });
+
+    // Evento para disminuir la cantidad
+    decrementBtn.addEventListener('click', function () {
+        let quantity = parseInt(quantityInput.value);
+        if (quantity > 0) {
+            quantity -= 1;
+            quantityInput.value = quantity;
+            updateTotalPrice();
+        }
+    });
+
+    // Agregar SweetAlert al botón "COMPRAR AHORA"
+    document.getElementById('add-to-cart').addEventListener('click', function() {
+        Swal.fire({
+            title: 'Pedido realizado',
+            text: 'Se ha enviado la solicitud de tu pedido.',
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
         });
     });
 });

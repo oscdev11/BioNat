@@ -231,6 +231,223 @@ section {
 
 
 
+#store {
+    position: relative;
+    z-index: 2;
+}
+
+.carousel {
+    position: relative;
+    width: 20%;
+    max-width: 600px;
+    /* Ajusta según el tamaño que desees */
+    overflow: hidden;
+    /* Oculta las imágenes que están fuera de la vista */
+    margin: auto;
+    /* Centra el carrusel */
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease;
+    /* Suaviza el cambio entre imágenes */
+}
+
+.carousel-item {
+    min-width: 100%;
+    /* Cada imagen ocupa el 100% del carrusel */
+    box-sizing: border-box;
+    /* Asegúrate de que el padding y el border no afecten el ancho */
+    display: flex;
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+}
+
+.carousel-item img {
+    max-width: 100%;
+    /* Asegúrate de que la imagen no exceda el contenedor */
+    height: auto;
+    /* Mantiene la relación de aspecto */
+    object-fit: cover;
+    /* Cubre el área del contenedor */
+}
+
+#prevBtn, #nextBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para botones */
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10; /* Asegura que los botones estén por encima del carrusel */
+}
+
+#prevBtn {
+    left: 10px; /* Alinea el botón de retroceso a la izquierda */
+}
+
+#nextBtn {
+    right: 10px; /* Alinea el botón de siguiente a la derecha */
+}
+
+#prevBtn {
+    left: 10px;
+    /* Espaciado a la izquierda */
+}
+
+#nextBtn {
+    right: 10px;
+    /* Espaciado a la derecha */
+}
+
+.product-info {
+    width: 40%;
+    /* 40% del ancho para la información del producto */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    /* Alinea el texto a la izquierda */
+    border-left: 1px solid #ccc;
+    /* Línea divisoria */
+    gap: 1rem;
+}
+
+/* Estilo del botón "Agregar al carrito" */
+#add-to-cart {
+    background-color: #28a745; /* Color verde */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 12px 20px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de la fuente */
+    font-family: "Work Sans", sans-serif; /* Fuente */
+    font-weight: bold; /* Negrita */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s, transform 0.2s; /* Efecto de transición */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+/* Efecto hover */
+#add-to-cart:hover {
+    background-color: #218838; /* Color más oscuro al pasar el mouse */
+    transform: translateY(-2px); /* Sube un poco al pasar el mouse */
+}
+
+/* Efecto al hacer clic */
+#add-to-cart:active {
+    transform: translateY(0); /* Vuelve a la posición original */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce la sombra */
+}
+
+
+
+
+#product-name {
+    color: rgb(0, 0, 0);
+    font-size: 36px;
+    text-align: left;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 500;
+}
+
+.precios {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px;
+    /* Espacio entre los textos */
+}
+
+#product-price-descuento {
+    color: gray;
+    /* Cambia el color a gris */
+    text-decoration: line-through;
+    /* Aplica el tachado al texto */
+    font-size: 1.2em;
+    /* Ajusta el tamaño de la fuente si es necesario */
+    /* Espacio superior e inferior */
+}
+
+#product-descuento {
+    color: red;
+    /* Aplica el tachado al texto */
+    font-size: 1.2em;
+    /* Ajusta el tamaño de la fuente si es necesario */
+    /* Espacio superior e inferior */
+}
+
+#product-price {
+    color: rgb(0, 0, 0);
+    font-size: 2rem;
+    text-align: left;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 500;
+}
+
+
+.quantity-container {
+    display: flex !important;                     /* Usar flexbox para alineación horizontal */
+    align-items: center !important;              /* Centrar verticalmente los elementos */
+    gap: 10px;                        /* Espacio entre los elementos */
+    margin-top: 1rem;                 /* Margen superior para separación */
+}
+
+#quantity-input {
+    width: 50px;                      /* Ancho del campo de cantidad */
+    text-align: center;               /* Centrar el texto en el campo de entrada */
+    border: 1px solid #ccc;           /* Borde del campo de entrada */
+    border-radius: 4px;              /* Bordes redondeados */
+    font-size: 1rem;                  /* Tamaño de fuente */
+    padding: 5px;                     /* Relleno interno */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+#decrement-btn, #increment-btn {
+    background-color: #409E57;        /* Color de fondo de los botones */
+    color: white;                     /* Color del texto de los botones */
+    border: none;                     /* Sin borde */
+    border-radius: 4px;              /* Bordes redondeados */
+    padding: 10px 15px;              /* Relleno interno */
+    cursor: pointer;                  /* Cambiar el cursor a puntero */
+    font-size: 1rem;                  /* Tamaño de fuente */
+    transition: background-color 0.3s; /* Transición suave */
+    min-width: 40px;                  /* Ancho mínimo para los botones */
+}
+
+#decrement-btn:hover, #increment-btn:hover {
+    background-color: #357D46;        /* Color de fondo al pasar el mouse */
+}
+
+#decrement-btn:disabled,
+#increment-btn:disabled {
+    background-color: #ccc;           /* Color del botón deshabilitado */
+    cursor: not-allowed;              /* Cambiar el cursor a no permitido */
+}
+
+
+
+#product-total {
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    text-align: left;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 500;
+}
+
+#total-price {
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    text-align: left;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 500;
+}
+
+
+
 
 #contact {
     position: relative;
@@ -248,13 +465,16 @@ section {
     align-items: center;
     width: 40%;
     max-width: 1200px;
-    gap: 50%; /* Espacio entre los elementos */
+    gap: 50%;
+    /* Espacio entre los elementos */
 }
+
 .social-icons {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 300px; /* Ajusta el ancho del contenedor según tus necesidades */
+    width: 300px;
+    /* Ajusta el ancho del contenedor según tus necesidades */
 }
 
 .about-image-content {
@@ -284,7 +504,8 @@ section {
 
 /* Efecto hover: cuando el usuario pasa el mouse sobre los íconos */
 .social-icons a:hover {
-    transform: scale(1.1); /* Agranda el ícono ligeramente al pasar el mouse */
+    transform: scale(1.1);
+    /* Agranda el ícono ligeramente al pasar el mouse */
 }
 
 #copyright {
