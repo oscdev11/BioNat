@@ -136,7 +136,17 @@ section {
 .image-content img {
     max-width: 100%;
     height: auto;
+    border: none;
+    transition: filter 0.5s ease, transform 0.5s ease; /* Aplicar transición para filter y transform */
 }
+
+.image-content img:hover {
+    filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.3)); /* Aplica sombra solo al contenido visible */
+    transform: scale(1.1); /* Efecto de agrandado al hacer hover */
+}
+
+
+
 
 #miTitulo {
     color: rgb(0, 0, 0);

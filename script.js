@@ -100,6 +100,33 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    const el = document.getElementById("imgHome");
+const height = el.clientHeight;
+const width = el.clientWidth;
+
+el.addEventListener('mousemove', (evt) => {
+    const { layerX, layerY } = evt;
+
+    const yRotation = (
+        (layerX - width / 2) / width
+    ) * 20;
+
+    const xRotation = (
+        (layerY - height / 2) / height
+    ) * 20;
+
+    // Usar backticks para interpolar las variables en la cadena
+    const string = `perspective(500px) scale(1.1) rotateX(${xRotation}deg) rotateY(${yRotation}deg)`;
+
+    el.style.transform = string;
+});
+
+// Resetear la rotación cuando el mouse salga de la imagen
+el.addEventListener('mouseleave', () => {
+    el.style.transform = 'perspective(500px) scale(1) rotateX(0) rotateY(0)';
+});
+
+
     const carouselInner = document.querySelector('.carousel-inner');
     const items = document.querySelectorAll('.carousel-item');
     const prevBtn = document.getElementById('prevBtn');
@@ -170,32 +197,32 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Agregar SweetAlert al botón "COMPRAR AHORA"
-document.getElementById('add-to-cart').addEventListener('click', function() {
-    const quantity = parseInt(quantityInput.value);
-    const totalPrice = (quantity * pricePerUnit).toFixed(2); // Calcula el total
+    document.getElementById('add-to-cart').addEventListener('click', function () {
+        const quantity = parseInt(quantityInput.value);
+        const totalPrice = (quantity * pricePerUnit).toFixed(2); // Calcula el total
 
-    // Verificar si el precio total es 0
-    if (totalPrice === "0.00") {
-        Swal.fire({
-            title: 'Error',
-            text: 'Debes seleccionar productos para realizar un pedido.',
-            icon: 'error',
-            confirmButtonText: 'Aceptar'
-        });
-    } else {
-        Swal.fire({
-            title: 'Pedido realizado',
-            text: 'Se ha enviado la solicitud de tu pedido.',
-            icon: 'success',
-            confirmButtonText: 'Aceptar'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Reiniciar las variables a 0
-                quantityInput.value = 0; // Reinicia el input
-                updateTotalPrice(); // Actualiza el precio total
-            }
-        });
-    }
-});
+        // Verificar si el precio total es 0
+        if (totalPrice === "0.00") {
+            Swal.fire({
+                title: 'Error',
+                text: 'Debes seleccionar productos para realizar un pedido.',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+            });
+        } else {
+            Swal.fire({
+                title: 'Pedido realizado',
+                text: 'Se ha enviado la solicitud de tu pedido.',
+                icon: 'success',
+                confirmButtonText: 'Aceptar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Reiniciar las variables a 0
+                    quantityInput.value = 0; // Reinicia el input
+                    updateTotalPrice(); // Actualiza el precio total
+                }
+            });
+        }
+    });
 
 });
