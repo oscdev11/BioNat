@@ -134,16 +134,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const incrementBtn = document.getElementById('increment-btn');
     const decrementBtn = document.getElementById('decrement-btn');
 
+    // Función para formatear el precio con comas
+    function formatPrice(price) {
+        return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
     // Función para actualizar el precio total
     function updateTotalPrice() {
         const quantity = parseInt(quantityInput.value);
         const totalPrice = (quantity * pricePerUnit).toFixed(2);
-        totalPriceDisplay.innerText = `$${totalPrice} MXN`;
+        totalPriceDisplay.innerText = `$${formatPrice(totalPrice)} MXN`;
     }
 
     // Inicializa el precio total
     updateTotalPrice();
-
     // Evento para aumentar la cantidad
     incrementBtn.addEventListener('click', function () {
         let quantity = parseInt(quantityInput.value);
