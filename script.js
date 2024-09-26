@@ -148,6 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Inicializa el precio total
     updateTotalPrice();
+
     // Evento para aumentar la cantidad
     incrementBtn.addEventListener('click', function () {
         let quantity = parseInt(quantityInput.value);
@@ -175,6 +176,12 @@ document.addEventListener('DOMContentLoaded', function () {
             text: 'Se ha enviado la solicitud de tu pedido.',
             icon: 'success',
             confirmButtonText: 'Aceptar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Reiniciar las variables a 0
+                quantityInput.value = 0; // Reinicia el input
+                updateTotalPrice(); // Actualiza el precio total
+            }
         });
     });
 });
