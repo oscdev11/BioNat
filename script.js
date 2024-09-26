@@ -170,7 +170,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Agregar SweetAlert al botón "COMPRAR AHORA"
-    document.getElementById('add-to-cart').addEventListener('click', function() {
+document.getElementById('add-to-cart').addEventListener('click', function() {
+    const quantity = parseInt(quantityInput.value);
+    const totalPrice = (quantity * pricePerUnit).toFixed(2); // Calcula el total
+
+    // Verificar si el precio total es 0
+    if (totalPrice === "0.00") {
+        Swal.fire({
+            title: 'Error',
+            text: 'Debes seleccionar productos para realizar un pedido.',
+            icon: 'error',
+            confirmButtonText: 'Aceptar'
+        });
+    } else {
         Swal.fire({
             title: 'Pedido realizado',
             text: 'Se ha enviado la solicitud de tu pedido.',
@@ -183,5 +195,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 updateTotalPrice(); // Actualiza el precio total
             }
         });
-    });
+    }
+});
+
 });
