@@ -13,6 +13,10 @@ body {
     height: 100%;
     font-family: Arial, sans-serif;
     scroll-behavior: smooth;
+    -webkit-user-select: none;  /* Para navegadores basados en WebKit (Chrome, Safari) */
+    -moz-user-select: none;     /* Para Firefox */
+    -ms-user-select: none;      /* Para Internet Explorer y Edge antiguos */
+    user-select: none;
 }
 
 body {
